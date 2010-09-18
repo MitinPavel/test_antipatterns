@@ -1,2 +1,8 @@
 Code examples for a tech-talk.
+
+Dependencies:
+* rspec 1.3.0
+* mocha 0.9.8
+* money 3.0.5
+
 See details here: http://cnc.dn.ua/meeting/september-2010-meeting-unit-tests-antipatterns-spravochnik.html
