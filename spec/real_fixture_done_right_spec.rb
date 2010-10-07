@@ -2,16 +2,18 @@ require "#{File.dirname __FILE__}/../app/post_repository.rb"
 require "#{File.dirname __FILE__}/../app/post.rb"
 
 describe PostRepository, "#popular" do
+  before do
+    @popular_post = build_popular_post
+    @unpopular_post = build_unpopular_post
+    @repository = PostRepository.new [@popular_post, @unpopular_post]
+  end
+
   it "should return a popular post" do
-    post = build_popular_post
-    repository = PostRepository.new [post]
-    repository.popular.should include(post)
+    @repository.popular.should include(@popular_post)
   end
 
   it "shouldn't return an unpopular post" do
-    post = build_unpopular_post
-    repository = PostRepository.new [post]
-    repository.popular.should_not include(post)
+    @repository.popular.should_not include(@unpopular_post)
   end
 
   def build_unpopular_post
